@@ -18,10 +18,6 @@ class CreditItemDto {
   creditType: CreditType;
 
   @IsOptional()
-  @IsString()
-  characterName?: string;
-
-  @IsOptional()
   @IsInt()
   orderIndex?: number;
 }

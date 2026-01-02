@@ -58,10 +58,10 @@ const AppNavbar: React.FC = () => {
           </Dropdown>
         ) : (
           <div className="flex gap-2">
-            <Button as={Link} to="/login" color="gray">
+            <Button as={Link} to="/login" className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
               Login
             </Button>
-            <Button as={Link} to="/register" color="purple">
+            <Button as={Link} to="/register" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
               Register
             </Button>
           </div>
@@ -70,24 +70,24 @@ const AppNavbar: React.FC = () => {
       </div>
       <NavbarCollapse>
         {/* @ts-expect-error: Flowbite types issue with 'to' prop */}
-        <NavbarLink as={Link} to="/" active={location.pathname === '/'}>
+        <NavbarLink as={Link} to="/" active={false} className={location.pathname === '/' ? "!text-blue-700 font-bold" : "text-gray-700 hover:text-blue-700"}>
           Home
         </NavbarLink>
         {/* @ts-expect-error: Flowbite types issue with 'to' prop */}
-        <NavbarLink as={Link} to="/films" active={location.pathname === '/films'}>
-          Filmler
+        <NavbarLink as={Link} to="/films" active={false} className={location.pathname === '/films' ? "!text-blue-700 font-bold" : "text-gray-700 hover:text-blue-700"}>
+          Films
         </NavbarLink>
         {/* @ts-expect-error: Flowbite types issue with 'to' prop */}
-        <NavbarLink as={Link} to="/actors" active={location.pathname === '/actors'}>
-          Oyuncular
+        <NavbarLink as={Link} to="/actors" active={false} className={location.pathname === '/actors' ? "!text-blue-700 font-bold" : "text-gray-700 hover:text-blue-700"}>
+          Actors
         </NavbarLink>
         {/* @ts-expect-error: Flowbite types issue with 'to' prop */}
-        <NavbarLink as={Link} to="/directors" active={location.pathname === '/directors'}>
-          Yönetmenler
+        <NavbarLink as={Link} to="/directors" active={false} className={location.pathname === '/directors' ? "!text-blue-700 font-bold" : "text-gray-700 hover:text-blue-700"}>
+          Directors
         </NavbarLink>
         {/* @ts-expect-error: Flowbite types issue with 'to' prop */}
-        <NavbarLink as={Link} to="/genres" active={location.pathname === '/genres'}>
-          Türler
+        <NavbarLink as={Link} to="/genres" active={false} className={location.pathname === '/genres' ? "!text-blue-700 font-bold" : "text-gray-700 hover:text-blue-700"}>
+          Genres
         </NavbarLink>
       </NavbarCollapse>
     </Navbar>

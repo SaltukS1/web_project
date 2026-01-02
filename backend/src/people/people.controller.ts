@@ -40,6 +40,11 @@ export class PeopleController {
     return this.peopleService.findOne(id);
   }
 
+  @Get(':id/films')
+  getPersonFilms(@Param('id') id: string) {
+    return this.peopleService.getPersonFilms(id);
+  }
+
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.ADMIN)
   @Post()

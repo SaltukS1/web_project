@@ -7,11 +7,11 @@ import { Spinner, Badge, Button, Textarea, Avatar, Card } from 'flowbite-react';
 interface FilmDetail {
   id: string;
   title: string;
-  description: string;
+  synopsis: string;
   releaseYear: number;
   posterUrl: string;
   filmGenres: { genre: { name: string } }[];
-  filmCredits: { person: { fullName: string }, creditType: string, characterName: string }[];
+  filmCredits: { person: { fullName: string }, creditType: string }[];
   reviews: { rating: number, reviewText: string, author: { name: string } }[];
   comments: { id: string, commentText: string, author: { name: string, id: string }, createdAt: string }[];
 }
@@ -106,7 +106,7 @@ const FilmDetail: React.FC = () => {
           </div>
 
           <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Synopsis</h3>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-8 text-lg">{film.description}</p>
+          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-8 text-lg">{film.synopsis}</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {directors.length > 0 && (
@@ -123,7 +123,7 @@ const FilmDetail: React.FC = () => {
                 <ul className="list-none space-y-1 text-gray-700 dark:text-gray-300">
                   {actors.map((c, i) => (
                     <li key={i}>
-                      <span className="font-medium">{c.person.fullName}</span> {c.characterName && <span className="text-gray-500 text-sm">as {c.characterName}</span>}
+                      <span className="font-medium">{c.person.fullName}</span>
                     </li>
                   ))}
                 </ul>
@@ -173,7 +173,7 @@ const FilmDetail: React.FC = () => {
                 rows={4}
               />
               <div className="flex justify-end">
-                <Button type="submit">Post Comment</Button>
+                <Button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Post Comment</Button>
               </div>
             </form>
           </Card>
@@ -189,11 +189,11 @@ const FilmDetail: React.FC = () => {
           <div className="space-y-6">
             {film.comments.map((comment) => (
               <div key={comment.id} className="flex gap-4 p-4 border-b border-gray-100 dark:border-gray-800 last:border-0">
-                <Avatar placeholderInitials={comment.author.name.charAt(0).toUpperCase()} rounded />
+                <Avatar placeholderInitials={comment.author?.name?.charAt(0).toUpperCase() || '?'} rounded />
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-2">
                     <div>
-                      <span className="font-bold text-gray-900 dark:text-white mr-2">{comment.author.name}</span>
+                      <span className="font-bold text-gray-900 dark:text-white mr-2">{comment.author?.name || 'Anonymous'}</span>
                       <span className="text-xs text-gray-500">
                         {new Date(comment.createdAt).toLocaleDateString()} {new Date(comment.createdAt).toLocaleTimeString()}
                       </span>

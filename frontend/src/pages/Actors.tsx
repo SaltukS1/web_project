@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import client from '../api/client';
 import { Card, Spinner } from 'flowbite-react';
 
@@ -30,16 +31,18 @@ const Actors: React.FC = () => {
       <h1 className="text-3xl font-bold mb-8 pb-4 border-b border-gray-200 dark:border-gray-700 dark:text-white">Actors</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {actors.map((actor) => (
-          <Card key={actor.id} className="hover:shadow-lg transition-shadow duration-300">
-            <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {actor.fullName}
-            </h5>
-            {actor.bio && (
-              <p className="font-normal text-sm text-gray-700 dark:text-gray-400 line-clamp-3">
-                {actor.bio}
-              </p>
-            )}
-          </Card>
+          <Link to={`/person/${actor.id}/films`} key={actor.id} className="no-underline">
+            <Card className="hover:shadow-lg transition-shadow duration-300 h-full">
+              <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                {actor.fullName}
+              </h5>
+              {actor.bio && (
+                <p className="font-normal text-sm text-gray-700 dark:text-gray-400 line-clamp-3">
+                  {actor.bio}
+                </p>
+              )}
+            </Card>
+          </Link>
         ))}
       </div>
     </div>

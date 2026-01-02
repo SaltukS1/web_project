@@ -25,9 +25,6 @@ export class FilmCredit {
   })
   creditType: CreditType;
 
-  @Column({ nullable: true })
-  characterName: string;
-
   @Column({ nullable: true, type: 'int' })
   orderIndex: number;
 }

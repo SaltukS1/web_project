@@ -100,15 +100,6 @@ export class SeedService implements OnApplicationBootstrap {
     // 2. Define Films Data
     const filmsData = [
       {
-        title: 'Inception',
-        year: 2010,
-        posterUrl: 'https://image.tmdb.org/t/p/w500/9gk7admal4ZLcnwnCSALLQU3rjD.jpg',
-        synopsis: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
-        director: 'Christopher Nolan',
-        actors: ['Leonardo DiCaprio', 'Joseph Gordon-Levitt'],
-        genres: ['Action', 'Sci-Fi', 'Adventure']
-      },
-      {
         title: 'The Dark Knight',
         year: 2008,
         posterUrl: 'https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg',
@@ -116,15 +107,6 @@ export class SeedService implements OnApplicationBootstrap {
         director: 'Christopher Nolan',
         actors: ['Christian Bale', 'Heath Ledger'],
         genres: ['Action', 'Crime', 'Drama']
-      },
-      {
-        title: 'Interstellar',
-        year: 2014,
-        posterUrl: 'https://image.tmdb.org/t/p/w500/gEU2QniL6C8zt6bOSdyTDrJwLL8.jpg',
-        synopsis: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity\'s survival.',
-        director: 'Christopher Nolan',
-        actors: ['Matthew McConaughey', 'Anne Hathaway'],
-        genres: ['Adventure', 'Drama', 'Sci-Fi']
       },
       {
         title: 'The Godfather',
@@ -172,15 +154,6 @@ export class SeedService implements OnApplicationBootstrap {
         genres: ['Drama', 'Romance']
       },
       {
-        title: 'The Matrix',
-        year: 1999,
-        posterUrl: 'https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpFUk5H.jpg',
-        synopsis: 'When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.',
-        director: 'Lana Wachowski',
-        actors: ['Keanu Reeves', 'Laurence Fishburne'],
-        genres: ['Action', 'Sci-Fi']
-      },
-      {
         title: 'Goodfellas',
         year: 1990,
         posterUrl: 'https://image.tmdb.org/t/p/w500/aKuFiU82s5ISJpGZp7YkIr3kCUd.jpg',
@@ -206,15 +179,6 @@ export class SeedService implements OnApplicationBootstrap {
         director: 'Jonathan Demme',
         actors: ['Jodie Foster', 'Anthony Hopkins'],
         genres: ['Crime', 'Drama', 'Thriller']
-      },
-      {
-        title: 'City of God',
-        year: 2002,
-        posterUrl: 'https://image.tmdb.org/t/p/w500/k7eYdW/+iY58bHj9C4i9.jpg', // Placeholder logic, actual URL might differ but keeping pattern
-        synopsis: 'In the slums of Rio, two kids\' paths diverge as one struggles to become a photographer and the other a kingpin.',
-        director: 'Fernando Meirelles',
-        actors: ['Alexandre Rodrigues', 'Leandro Firmino'],
-        genres: ['Crime', 'Drama']
       },
       {
         title: 'Life Is Beautiful',
@@ -244,15 +208,6 @@ export class SeedService implements OnApplicationBootstrap {
         genres: ['Drama', 'War']
       },
       {
-        title: 'Spirited Away',
-        year: 2001,
-        posterUrl: 'https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRuqK66UeZ2k.jpg',
-        synopsis: 'During her family\'s move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.',
-        director: 'Hayao Miyazaki',
-        actors: ['Rumi Hiiragi', 'Miyu Irino'],
-        genres: ['Animation', 'Adventure', 'Family']
-      },
-      {
         title: 'Parasite',
         year: 2019,
         posterUrl: 'https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg',
@@ -269,15 +224,6 @@ export class SeedService implements OnApplicationBootstrap {
         director: 'Ridley Scott',
         actors: ['Russell Crowe', 'Joaquin Phoenix'],
         genres: ['Action', 'Adventure', 'Drama']
-      },
-      {
-        title: 'The Lion King',
-        year: 1994,
-        posterUrl: 'https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJLrpMsdP5.jpg',
-        synopsis: 'Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.',
-        director: 'Roger Allers',
-        actors: ['Matthew Broderick', 'Jeremy Irons'],
-        genres: ['Animation', 'Adventure', 'Drama']
       }
     ];
 

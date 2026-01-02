@@ -32,6 +32,29 @@ export class PeopleService {
     return person;
   }
 
+  async getPersonFilms(id: string) {
+    const person = await this.personRepository.findOne({
+      where: { id },
+      relations: ['filmCredits', 'filmCredits.film'],
+    });
+
+    if (!person) {
+      throw new NotFoundException(`Person with ID ${id} not found`);
+    }
+
+    // Extract films from credits and remove duplicates (in case a person has multiple roles in the same film)
+    const filmsMap = new Map();
+    if (person.filmCredits) {
+      person.filmCredits.forEach((credit) => {
+        if (credit.film) {
+          filmsMap.set(credit.film.id, credit.film);
+        }
+      });
+    }
+
+    return Array.from(filmsMap.values());
+  }
+
   async update(id: string, updatePersonDto: UpdatePersonDto) {
     const person = await this.findOne(id);
     Object.assign(person, updatePersonDto);

@@ -5,10 +5,6 @@ export class CreateFilmDto {
   @IsString()
   title: string;
 
-  @IsOptional()
-  @IsString()
-  originalTitle?: string;
-
   @IsNotEmpty()
   @IsInt()
   releaseYear: number;

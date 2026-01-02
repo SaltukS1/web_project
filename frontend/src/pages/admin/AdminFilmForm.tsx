@@ -16,7 +16,6 @@ interface Person {
 interface CreditItem {
   personId: string;
   creditType: 'DIRECTOR' | 'ACTOR';
-  characterName?: string;
   orderIndex?: number;
 }
 
@@ -30,7 +29,6 @@ const AdminFilmForm: React.FC = () => {
   const navigate = useNavigate();
 
   const [title, setTitle] = useState('');
-  const [originalTitle, setOriginalTitle] = useState('');
   const [releaseYear, setReleaseYear] = useState<number>(new Date().getFullYear());
   const [posterUrl, setPosterUrl] = useState('');
   const [inputType, setInputType] = useState<'url' | 'file'>('url');
@@ -45,7 +43,6 @@ const AdminFilmForm: React.FC = () => {
   // New Credit Inputs
   const [newCreditPersonId, setNewCreditPersonId] = useState('');
   const [newCreditType, setNewCreditType] = useState<'DIRECTOR' | 'ACTOR'>('ACTOR');
-  const [newCreditCharacter, setNewCreditCharacter] = useState('');
 
   const [review, setReview] = useState<Review>({ rating: 0, reviewText: '' });
   const [loading, setLoading] = useState(true);
@@ -64,7 +61,6 @@ const AdminFilmForm: React.FC = () => {
           const filmRes = await client.get(`/films/${id}`);
           const film = filmRes.data;
           setTitle(film.title);
-          setOriginalTitle(film.originalTitle || '');
           setReleaseYear(film.releaseYear);
           setPosterUrl(film.posterUrl);
           setSynopsis(film.synopsis || '');
@@ -77,7 +73,6 @@ const AdminFilmForm: React.FC = () => {
             setCredits(film.filmCredits.map((fc: any) => ({
               personId: fc.person.id,
               creditType: fc.creditType,
-              characterName: fc.characterName,
               orderIndex: fc.orderIndex
             })));
           }
@@ -111,12 +106,10 @@ const AdminFilmForm: React.FC = () => {
     const newCredit: CreditItem = {
       personId: newCreditPersonId,
       creditType: newCreditType,
-      characterName: newCreditType === 'ACTOR' ? newCreditCharacter : undefined,
       orderIndex: credits.length
     };
     setCredits([...credits, newCredit]);
     setNewCreditPersonId('');
-    setNewCreditCharacter('');
   };
 
   const handleRemoveCredit = (index: number) => {
@@ -161,7 +154,6 @@ const AdminFilmForm: React.FC = () => {
     try {
       const filmData = {
         title,
-        originalTitle,
         releaseYear: Number(releaseYear),
         posterUrl,
         synopsis
@@ -213,17 +205,11 @@ const AdminFilmForm: React.FC = () => {
           </div>
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="originalTitle">Original Title</Label>
-            </div>
-            <TextInput id="originalTitle" type="text" value={originalTitle} onChange={e => setOriginalTitle(e.target.value)} />
-          </div>
-          <div>
-            <div className="mb-2 block">
               <Label htmlFor="releaseYear">Release Year *</Label>
             </div>
             <TextInput id="releaseYear" type="number" value={releaseYear} onChange={e => setReleaseYear(Number(e.target.value))} required />
           </div>
-          <div>
+          <div className="md:col-span-2">
             <div className="mb-2 block">
               <Label htmlFor="posterUrl">Poster Image</Label>
             </div>
@@ -317,20 +303,6 @@ const AdminFilmForm: React.FC = () => {
                 <option value="DIRECTOR">Director</option>
               </Select>
             </div>
-            {newCreditType === 'ACTOR' && (
-              <div>
-                 <div className="mb-2 block">
-                  <Label htmlFor="character">Character</Label>
-                </div>
-                <TextInput 
-                  id="character"
-                  type="text" 
-                  value={newCreditCharacter} 
-                  onChange={e => setNewCreditCharacter(e.target.value)}
-                  placeholder="Character Name"
-                />
-              </div>
-            )}
             <Button type="button" onClick={handleAddCredit} color="success">Add</Button>
           </div>
 
@@ -339,7 +311,6 @@ const AdminFilmForm: React.FC = () => {
               <li key={idx} className="flex justify-between items-center py-2">
                 <span className="text-gray-900 dark:text-white">
                   <strong>{getPersonName(c.personId)}</strong> - {c.creditType} 
-                  {c.characterName && <span className="text-gray-500"> as {c.characterName}</span>}
                 </span>
                 <Button color="failure" size="xs" onClick={() => handleRemoveCredit(idx)}>Remove</Button>
               </li>

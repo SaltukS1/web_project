@@ -45,6 +45,7 @@ export class FilmsService {
         'filmCredits',
         'filmCredits.person',
         'reviews',
+        'reviews.author',
         'comments',
         'comments.author',
       ],
@@ -122,7 +123,6 @@ export class FilmsService {
           film,
           person,
           creditType: creditDto.creditType,
-          characterName: creditDto.characterName,
           orderIndex: creditDto.orderIndex,
         });
         credits.push(filmCredit);

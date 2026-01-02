@@ -19,9 +19,6 @@ export class Film {
   @Column()
   title: string;
 
-  @Column({ nullable: true })
-  originalTitle: string;
-
   @Column('int')
   releaseYear: number;
 

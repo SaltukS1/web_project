@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Films from './pages/Films';
 import Genres from './pages/Genres';
 import GenreFilms from './pages/GenreFilms';
+import PersonFilms from './pages/PersonFilms';
 import Actors from './pages/Actors';
 import Directors from './pages/Directors';
 import Login from './pages/Login';
@@ -27,6 +28,7 @@ function App() {
         <Route path="/films/:id" element={<FilmDetail />} />
         <Route path="/genres" element={<Genres />} />
         <Route path="/genres/:id" element={<GenreFilms />} />
+        <Route path="/person/:id/films" element={<PersonFilms />} />
         <Route path="/actors" element={<Actors />} />
         <Route path="/directors" element={<Directors />} />
         <Route path="/login" element={<Login />} />

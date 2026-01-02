@@ -65,7 +65,7 @@ const Register: React.FC = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <Button type="submit" color="purple">Register</Button>
+          <Button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Register</Button>
           <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
             Already have an account?{' '}
             <Link to="/login" className="text-blue-700 hover:underline dark:text-blue-500">

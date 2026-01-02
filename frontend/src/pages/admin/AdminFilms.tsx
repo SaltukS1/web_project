@@ -37,7 +37,7 @@ const AdminFilms: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Manage Films</h2>
-        <Button as={Link} to="/admin/films/new" color="blue">
+        <Button as={Link} to="/admin/films/new" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
           Add New Film
         </Button>
       </div>

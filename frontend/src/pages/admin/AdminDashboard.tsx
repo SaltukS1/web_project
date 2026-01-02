@@ -14,7 +14,7 @@ const AdminDashboard: React.FC = () => {
           <p className="font-normal text-gray-700 dark:text-gray-400">
             Manage your movie catalog. Add, edit, or remove films.
           </p>
-          <Button as={Link} to="/admin/films">
+          <Button as={Link} to="/admin/films" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
             Manage Films
           </Button>
         </Card>
@@ -47,7 +47,7 @@ const AdminDashboard: React.FC = () => {
           <p className="font-normal text-gray-700 dark:text-gray-400">
             Manage directors database.
           </p>
-          <Button as={Link} to="/admin/directors" color="warning">
+          <Button as={Link} to="/admin/directors" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
             Manage Directors
           </Button>
         </Card>
